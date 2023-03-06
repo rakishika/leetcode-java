@@ -1,0 +1,17 @@
+class Solution {
+    public ListNode reverseList(ListNode head) {
+	    //prev doesn't exist, so u needa create it or make space for it, that's why it's null rn
+        ListNode prev = null;
+		//need to loop through and do the reassigning
+        while(head != null){
+        //we hhave nextNode, prev, and head
+            ListNode nextNode = head.next;
+            head.next = prev;
+            prev = head;
+            head = nextNode;
+
+        }
+        
+        return prev;
+    }
+}
