@@ -1,0 +1,50 @@
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        //brute force
+        //int compare = 0;
+        //boolean isDuplicate = false;
+        //for( int i = 0; i < nums.length; i++){
+            //compare = nums[i];
+            //for (int j = i+1; j < nums.length; j++){
+                //if (compare == nums[j]){
+                    //isDuplicate = true;
+                //}
+            //}
+        //}
+        //return isDuplicate;
+    //}
+       //the above works but is timed out once again
+
+    //hash sets are really good for these types of problems, seeing if things are distinct, or if there are duplicates bc hashsets only have distinct elements in them, so put each element in the array and then check if that element is in the hash set and if it is then there is a duplicate
+
+        HashSet<Integer> numbers = new HashSet<>();
+
+        for(int i = 0; i < nums.length; i++){
+            if(numbers.contains(nums[i])){
+                return true;
+            }
+            else{
+                numbers.add(nums[i]);
+            }
+        }
+        return false;
+
+//another way to solve is sorting
+
+        // Arrays.sort(nums);
+        // int compare = 0;
+        // boolean isDupli = false;
+
+        // for(int i = 0; i < nums.length - 1; i++){
+        //     //compare = num[i];
+        //     if(nums[i] == nums[i+1]){
+        //         isDupli = true;
+        //     }
+        // }
+        // return isDupli;
+
+    }
+
+
+    
+}
