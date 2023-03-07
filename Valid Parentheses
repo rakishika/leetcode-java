@@ -1,0 +1,31 @@
+class Solution {
+    public boolean isValid(String s) {
+        //first let's check if string s has an even length else automatically false
+        if(s.length()%2 != 0){
+            return false;
+        }
+
+        //now let's create stack
+        Stack<Character> stack = new Stack();
+        //now let's loop through the string to look for the opening brackets
+        for(char ch : s.toCharArray()){
+            if(ch == '(' || ch == '{' || ch == '['){
+                stack.push(ch);
+            }
+            else if(ch == ')' && !stack.isEmpty() && stack.peek() == '(') {
+                stack.pop();
+            }
+             else if(ch == '}' && !stack.isEmpty() && stack.peek() == '{'){
+                stack.pop();
+            }
+             else if(ch == ']' && !stack.isEmpty() && stack.peek() == '['){
+                stack.pop();
+            }
+            else{
+                return false; // code was not working till i added this line
+            }
+
+        }
+        return stack.isEmpty();
+    }
+}
